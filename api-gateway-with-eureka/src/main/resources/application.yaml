@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: eureka-gateway
+
+server:
+  port: 1101
+
+zuul:
+  routes:
+    movie:
+      path: /EUREKA-CLIENT-A/**
+      service-id: EUREKA-CLIENT-A
+    user:
+      path: /EUREKA-CLIENT-B/**
+      service-id: EUREKA-CLIENT-B
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
